@@ -1,0 +1,90 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		}
+	    ,{
+            "path" : "pages/wiki/wiki",
+            "style" : {
+				"navigationBarTitleText": "智食百科"
+			}
+        }
+        ,{
+            "path" : "pages/photo/photo",
+            "style" : {
+				"navigationBarTitleText": "拍照"
+			}
+        }
+        ,{
+            "path" : "pages/social/social",
+            "style" : {
+				"navigationBarTitleText": "智食圈"
+			}
+        }
+        ,{
+            "path" : "pages/personal/personal",
+            "style" : {
+				"navigationBarTitleText": "我的"
+			}
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/sign/sign",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/basicData/basicData",
+            "style" : {}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#fccc0a",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar":{
+		"color":"#2c2c2c",
+		"selectedColor":"#f5a723",
+		"borderStyle":"#bbbbbb",
+		"backgroundColor":"white",
+		"list":[
+			{
+				"pagePath":"pages/index/index",
+				"text":"首页",
+				"iconPath":"static/images/tabbar/home.png",
+				"selectedIconPath":"static/images/tabbar/home_selected.png"
+			},
+			{
+				"pagePath":"pages/wiki/wiki",
+				"text":"智食百科",
+				"iconPath":"static/images/tabbar/more.png",
+				"selectedIconPath":"static/images/tabbar/more_selected.png"
+			},
+			{
+				"pagePath":"pages/photo/photo",
+				"text":"拍照",
+				"iconPath":"static/images/tabbar/camara.png",
+				"selectedIconPath":"static/images/tabbar/camara_selected.png"
+			},
+			{
+				"pagePath":"pages/social/social",
+				"text":"智食圈",
+				"iconPath":"static/images/tabbar/see.png",
+				"selectedIconPath":"static/images/tabbar/see_selected.png"
+			},
+			{
+				"pagePath":"pages/personal/personal",
+				"text":"我的",
+				"iconPath":"static/images/tabbar/personal.png",
+				"selectedIconPath":"static/images/tabbar/personal_selected.png"
+			}
+		]
+	}
+}
