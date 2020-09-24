@@ -1,0 +1,2 @@
+- code用于存放app前端源码
+- component用于存放可复用的组件
