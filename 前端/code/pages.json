@@ -12,6 +12,12 @@
 				"navigationBarTitleText": "智食百科"
 			}
         }
+		,{
+			"path": "pages/wikiDetail/wikiDetail",
+			"style": {
+				"navigationBarTitleText": "百科详情"
+			}
+		}
         ,{
             "path" : "pages/photo/photo",
             "style" : {
@@ -24,6 +30,12 @@
 				"navigationBarTitleText": "智食圈"
 			}
         }
+		,{
+		    "path" : "pages/articalDetail/articalDetail",
+		    "style" : {
+				"navigationBarTitleText": "文章详情"
+			}
+		}
         ,{
             "path" : "pages/personal/personal",
             "style" : {
@@ -41,6 +53,12 @@
         ,{
             "path" : "pages/basicData/basicData",
             "style" : {}
+        }
+        ,{
+            "path" : "pages/socialDetail/socialDetail",
+            "style" : {
+				"navigationBarTitleText": "动态详情"
+			}
         }
     ],
 	"globalStyle": {
