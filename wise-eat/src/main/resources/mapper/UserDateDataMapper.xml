@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.healthycheese.wiseeat.mapper.UserDateDataMapper">
+  <resultMap id="BaseResultMap" type="com.healthycheese.wiseeat.entity.UserDateData">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <id column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.healthycheese.wiseeat.entity.UserDateData">
+    <result column="food" jdbcType="LONGVARCHAR" property="food" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, `time`, `status`
+  </sql>
+  <sql id="Blob_Column_List">
+    food
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.healthycheese.wiseeat.entity.UserDateDataKey" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_user_date_data
+    where user_id = #{userId,jdbcType=INTEGER}
+      and `time` = #{time,jdbcType=TIMESTAMP}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.healthycheese.wiseeat.entity.UserDateDataKey">
+    delete from tb_user_date_data
+    where user_id = #{userId,jdbcType=INTEGER}
+      and `time` = #{time,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.healthycheese.wiseeat.entity.UserDateData">
+    insert into tb_user_date_data (user_id, `time`, `status`, 
+      food)
+    values (#{userId,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{food,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.healthycheese.wiseeat.entity.UserDateData">
+    insert into tb_user_date_data
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="time != null">
+        `time`,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="food != null">
+        food,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="food != null">
+        #{food,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.healthycheese.wiseeat.entity.UserDateData">
+    update tb_user_date_data
+    <set>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="food != null">
+        food = #{food,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+      and `time` = #{time,jdbcType=TIMESTAMP}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.healthycheese.wiseeat.entity.UserDateData">
+    update tb_user_date_data
+    set `status` = #{status,jdbcType=INTEGER},
+      food = #{food,jdbcType=LONGVARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+      and `time` = #{time,jdbcType=TIMESTAMP}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.healthycheese.wiseeat.entity.UserDateData">
+    update tb_user_date_data
+    set `status` = #{status,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=INTEGER}
+      and `time` = #{time,jdbcType=TIMESTAMP}
+  </update>
+</mapper>

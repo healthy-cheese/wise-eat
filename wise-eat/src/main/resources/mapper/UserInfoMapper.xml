@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.healthycheese.wiseeat.mapper.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.healthycheese.wiseeat.entity.UserInfo">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="weight" jdbcType="DECIMAL" property="weight" />
+    <result column="height" jdbcType="DECIMAL" property="height" />
+    <result column="now_lose" jdbcType="DECIMAL" property="nowLose" />
+    <result column="consumption" jdbcType="DECIMAL" property="consumption" />
+    <result column="sex" jdbcType="TINYINT" property="sex" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="goal" jdbcType="INTEGER" property="goal" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, weight, height, now_lose, consumption, sex, age, goal
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user_info
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_user_info
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.healthycheese.wiseeat.entity.UserInfo">
+    insert into tb_user_info (user_id, weight, height, 
+      now_lose, consumption, sex, 
+      age, goal)
+    values (#{userId,jdbcType=INTEGER}, #{weight,jdbcType=DECIMAL}, #{height,jdbcType=DECIMAL}, 
+      #{nowLose,jdbcType=DECIMAL}, #{consumption,jdbcType=DECIMAL}, #{sex,jdbcType=TINYINT}, 
+      #{age,jdbcType=INTEGER}, #{goal,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.healthycheese.wiseeat.entity.UserInfo">
+    insert into tb_user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="height != null">
+        height,
+      </if>
+      <if test="nowLose != null">
+        now_lose,
+      </if>
+      <if test="consumption != null">
+        consumption,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="goal != null">
+        goal,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=DECIMAL},
+      </if>
+      <if test="nowLose != null">
+        #{nowLose,jdbcType=DECIMAL},
+      </if>
+      <if test="consumption != null">
+        #{consumption,jdbcType=DECIMAL},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="goal != null">
+        #{goal,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.healthycheese.wiseeat.entity.UserInfo">
+    update tb_user_info
+    <set>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="height != null">
+        height = #{height,jdbcType=DECIMAL},
+      </if>
+      <if test="nowLose != null">
+        now_lose = #{nowLose,jdbcType=DECIMAL},
+      </if>
+      <if test="consumption != null">
+        consumption = #{consumption,jdbcType=DECIMAL},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="goal != null">
+        goal = #{goal,jdbcType=INTEGER},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.healthycheese.wiseeat.entity.UserInfo">
+    update tb_user_info
+    set weight = #{weight,jdbcType=DECIMAL},
+      height = #{height,jdbcType=DECIMAL},
+      now_lose = #{nowLose,jdbcType=DECIMAL},
+      consumption = #{consumption,jdbcType=DECIMAL},
+      sex = #{sex,jdbcType=TINYINT},
+      age = #{age,jdbcType=INTEGER},
+      goal = #{goal,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>
