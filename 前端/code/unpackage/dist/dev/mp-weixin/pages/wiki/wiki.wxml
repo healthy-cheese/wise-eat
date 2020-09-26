@@ -1,0 +1,14 @@
+<view>
+	<view class="list">
+		<scroll-view class="list-left" style="{{('height:'+height+'px')}}" scroll-y="{{true}}">
+			<block wx:for="{{dataList}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+				<block wx:if="{{dataList.length>0}}">
+					<view data-event-opts="{{[['tap',[['categoryClickMain',['$0',index],[[['dataList','id',item.id,'id']]]]]]]}}" class="{{['list-nav',index==categoryActive?'active':'']}}" bindtap="__e">{{''+item.deptName+''}}</view>
+				</block>
+			</block>
+		</scroll-view>
+		<scroll-view class="list-right" style="{{('height:'+height+'px')}}" scroll-y="{{true}}" scroll-top="{{scrollTop}}" scroll-with-animation="{{true}}" data-event-opts="{{[['scroll',[['scroll',['$event']]]]]}}" bindscroll="__e">
+			<view data-event-opts="{{[['tap',[['openOrder',['$event']]]]]}}" class="right-nav" bindtap="__e">{{''+rightView.deptName+''}}</view>
+		</scroll-view>
+	</view>
+</view>
